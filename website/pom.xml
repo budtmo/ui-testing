@@ -11,8 +11,8 @@
     <properties>
         <java.version>1.8</java.version>
         <selenium.version>3.4.0</selenium.version>
-        <junit.version>4.12</junit.version>
-        <cucumberjunit.version>1.2.5</cucumberjunit.version>
+        <testng.version>6.11</testng.version>
+        <cucumbertestng.version>1.2.5</cucumbertestng.version>
         <cucumberjava.version>1.2.5</cucumberjava.version>
     </properties>
 
@@ -23,15 +23,15 @@
             <version>${selenium.version}</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumberjunit.version}</version>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumbertestng.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
