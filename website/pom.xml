@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ui.web.selenium</groupId>
-    <artifactId>ui-web-testing</artifactId>
+    <groupId>ui.test.website</groupId>
+    <artifactId>ui-test-website</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

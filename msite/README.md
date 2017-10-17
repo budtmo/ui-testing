@@ -22,5 +22,5 @@ If you get error message "Original error: unknown error: Chrome version must be 
 then you need to download chrome driver from [here](https://chromedriver.storage.googleapis.com/index.html) and run appium with following command:
 
 ```bash
-appium appium --chromedriver-executable <path_of_chromedriver>
+appium --chromedriver-executable <path_of_chromedriver>
 ```

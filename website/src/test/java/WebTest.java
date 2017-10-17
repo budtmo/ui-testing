@@ -14,7 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class SampleTest {
+public class WebTest {
 
     private static final String URL = "http://127.0.0.1:4444/wd/hub";
     private WebDriver driver;
@@ -29,17 +29,17 @@ public class SampleTest {
 
     @Given("^google search page$")
     public void googlePage() {
-        driver.get("https://www.google.de/");
+        driver.get("https://www.google.com/");
     }
 
-    @When("^user search for selenium")
+    @When("^user search for selenium$")
     public void searchForSelenium() {
         WebElement element = driver.findElement(By.name("q"));
         element.sendKeys("selenium");
         element.submit();
     }
 
-    @Then("^user should see result page")
+    @Then("^user should see result page$")
     public void assertResultPage() {
         driver.findElement(By.id("res")).isDisplayed();
     }
