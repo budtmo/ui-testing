@@ -16,17 +16,15 @@ import java.net.URL;
 
 public class AndroidUITest {
 
-    private static final String URL = "http://127.0.0.1:4723/wd/hub";
+    private static final String URL = "http://127.0.0.1:4444/wd/hub";
     private AppiumDriver<WebElement> driver;
 
     @Before
     public void prepare() throws MalformedURLException {
-        File app = new File(System.getProperty("user.dir"), "src/test/resources/apk/sample_apk_debug.apk");
-
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
-        desiredCapabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "ce11160bbaee9c3b05");
+        desiredCapabilities.setCapability(MobileCapabilityType.APP, "/opt/sample_apk_debug.apk");
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
         driver = new AndroidDriver<>(new URL(URL), desiredCapabilities);
     }

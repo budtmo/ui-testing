@@ -15,15 +15,16 @@ import java.net.URL;
 
 public class MSiteTest {
 
-    private static final String URL = "http://127.0.0.1:4723/wd/hub";
+    private static final String URL = "http://127.0.0.1:4444/wd/hub";
     private AppiumDriver <WebElement> driver;
 
     @Before
     public void prepare() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "ce11160bbaee9c3b05");
         desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
+        desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
         driver = new AndroidDriver<>(new URL(URL), desiredCapabilities);
     }
 
