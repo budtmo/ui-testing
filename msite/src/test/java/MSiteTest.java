@@ -22,9 +22,10 @@ public class MSiteTest {
     public void prepare() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "4.4.2");
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.0.2");
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "02d72d1d174dd4cb");
         desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
+        desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
         driver = new AndroidDriver<>(new URL(URL), desiredCapabilities);
     }
 
