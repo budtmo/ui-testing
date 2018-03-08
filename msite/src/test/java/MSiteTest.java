@@ -26,6 +26,7 @@ public class MSiteTest {
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "LGD802174dd4cb");
         desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
+        desiredCapabilities.setCapability("systemPort", 8200);
         driver = new AndroidDriver<>(new URL(URL), desiredCapabilities);
     }
 

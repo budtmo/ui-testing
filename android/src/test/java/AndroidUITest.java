@@ -5,19 +5,24 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.AndroidStartScreenRecordingOptions;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.screenrecording.ScreenRecordingUploadOptions;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 public class AndroidUITest {
 
     private static final String URL = "http://127.0.0.1:4444/wd/hub";
-    private AppiumDriver<WebElement> driver;
+    private AndroidDriver<AndroidElement> driver;
 
     @Before
     public void prepare() throws MalformedURLException {
@@ -27,6 +32,7 @@ public class AndroidUITest {
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "ce11160bbaee9c3b05");
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "/opt/sample_apk_debug.apk");
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
+        desiredCapabilities.setCapability("systemPort", 8201);
         driver = new AndroidDriver<>(new URL(URL), desiredCapabilities);
     }
 
@@ -50,6 +56,8 @@ public class AndroidUITest {
 
     @After
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
