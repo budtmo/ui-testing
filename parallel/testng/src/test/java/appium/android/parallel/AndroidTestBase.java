@@ -23,7 +23,7 @@ public class AndroidTestBase {
 
     @Parameters({"platformVersion", "deviceName", "browserName"})
     @BeforeClass
-    public void beforTest(String platformVersion, String deviceName, String browserName) throws MalformedURLException {
+    public void beforeClass(String platformVersion, String deviceName, String browserName) throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM, Platform.ANDROID);
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
@@ -39,7 +39,7 @@ public class AndroidTestBase {
     }
 
     @AfterClass
-    public void afterTest(){
+    public void afterClass(){
         if (driver != null) {
             driver.quit();
         }
