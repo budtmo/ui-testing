@@ -1,0 +1,30 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite" parallel="tests" thread-count="3" >
+    <test name="RealDeviceAndroidApp">
+        <parameter name="platformVersion" value="7.0"/>
+        <parameter name="deviceName" value="ce11160bbaee9c3b05"/>
+        <parameter name="browserName" value="android"/>
+        <classes>
+            <class name="appium.android.parallel.testcases.AndroidAppTest"/>
+        </classes>
+    </test>
+
+    <test name="EmulatorSamsungMSiteChrome">
+        <parameter name="platformVersion" value="7.1.1"/>
+        <parameter name="deviceName" value="Android Emulator"/>
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="appium.android.parallel.testcases.MSiteChromeTest"/>
+        </classes>
+    </test>
+
+    <test name="EmulatorNexusMSiteAndroidBrowser">
+        <parameter name="platformVersion" value="5.1.1"/>
+        <parameter name="deviceName" value="Android Emulator"/>
+        <parameter name="browserName" value="browser"/>
+        <classes>
+            <class name="appium.android.parallel.testcases.MSiteAndroidBrowserTest"/>
+        </classes>
+    </test>
+</suite>
