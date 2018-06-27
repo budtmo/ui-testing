@@ -20,7 +20,7 @@ import java.util.Base64;
 
 public class AndroidTestBase {
     private static final String URL = "http://127.0.0.1:4444/wd/hub";
-    private static final String APK = "/opt/sample_apk_debug.apk";
+    private static final String APK = "/root/tmp/sample_apk/sample_apk_debug.apk";
 
     protected AndroidDriver<WebElement> driver;
 

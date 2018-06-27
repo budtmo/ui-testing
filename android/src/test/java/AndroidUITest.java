@@ -31,7 +31,7 @@ public class AndroidUITest {
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.0");
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "ce11160bbaee9c3b05");
         desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "android");
-        desiredCapabilities.setCapability(MobileCapabilityType.APP, "/opt/sample_apk_debug.apk");
+        desiredCapabilities.setCapability(MobileCapabilityType.APP, "/root/tmp/sample_apk/sample_apk_debug.apk");
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
         driver = new AndroidDriver<>(new URL(URL), desiredCapabilities);
     }
