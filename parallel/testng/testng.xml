@@ -2,7 +2,7 @@
 
 <suite name="Suite" parallel="tests" thread-count="3" >
     <test name="RealDeviceAndroidApp">
-        <parameter name="platformVersion" value="7.0"/>
+        <parameter name="platformVersion" value="8.0.0"/>
         <parameter name="deviceName" value="ce11160bbaee9c3b05"/>
         <parameter name="browserName" value="android"/>
         <classes>
@@ -11,7 +11,7 @@
     </test>
 
     <test name="EmulatorSamsungMSiteChrome">
-        <parameter name="platformVersion" value="7.1.1"/>
+        <parameter name="platformVersion" value="8.1"/>
         <parameter name="deviceName" value="Android Emulator"/>
         <parameter name="browserName" value="chrome"/>
         <classes>
