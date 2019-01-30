@@ -9,7 +9,7 @@ import java.io.IOException;
 
 @CucumberOptions(features = "src/test/resources/features", plugin = {"pretty", "html:target/cucumber-html-report"})
 public class CukesRunnerTest extends AbstractTestNGCucumberTests {
-
+    // For parallel test -> https://github.com/cucumber/cucumber-jvm/tree/master/testng
     public static String platformVersion, device, browser;
 
     @Parameters({"platformVersion", "deviceName", "browserName"})
