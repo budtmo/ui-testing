@@ -1,0 +1,47 @@
+version: "2.2"
+
+services:
+
+  # InfluxDB
+  db:
+    image: influxdb
+    ports:
+      - 8086:8086
+    volumes:
+      - $PWD/db:/var/lib/influxdb
+
+  #Grafana
+  monitoring:
+    image: grafana/grafana:5.0.0
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    volumes:
+      - $PWD/grafana:/var/lib/grafana
+
+  # Selenium hub
+  selenium_hub:
+    image: selenium/hub:3.141.59-europium
+    ports:
+      - 4444:4444
+
+  # Docker-Android
+  nexus_7.1.1:
+    image: butomo1989/docker-android-x86-7.1.1:1.6-p2
+    privileged: true
+    # Increase scale number if needed
+    scale: 1
+    depends_on:
+      - selenium_hub
+    ports:
+      - 6080:6080
+    # Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
+    volumes:
+      - $PWD/src/test/resources/apk:/root/tmp/sample_apk
+    environment:
+      - DEVICE=Nexus 5
+      - CONNECT_TO_GRID=true
+      - APPIUM=true
+      - SELENIUM_HOST=selenium_hub
+      - AUTO_RECORD=false

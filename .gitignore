@@ -3,4 +3,7 @@
 *.iml
 
 # Test result
-target/
+*/target
+
+monitoring/grafana
+monitoring/db
