@@ -5,11 +5,19 @@ Requirement
 -----------
 1. Java JDK
 2. Maven
-3. Selenium Grid
+3. Docker
 
 Quick Start
 -----------
 
-```bash
-mvn test
-```
+1. Run [Zalenium](https://github.com/zalando/zalenium)
+
+	```bash
+	curl -sSL https://raw.githubusercontent.com/dosel/t/i/p | bash -s start
+	```
+
+2. Run test
+
+	```bash
+	mvn test
+	```

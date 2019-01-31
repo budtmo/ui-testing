@@ -5,13 +5,19 @@ Requirement
 -----------
 1. Java JDK
 2. Maven
-3. Appium server
-4. Android emulator
+3. Docker
 
 Quick Start
 -----------
 
-```bash
-mvn test
-```
+1. Run all needed docker services
 
+	```bash
+	docker-compose up -d
+	```
+
+2. Run test
+
+	```bash
+	mvn test
+	```

@@ -1,0 +1,27 @@
+version: "2.2"
+
+services:
+
+  # Selenium hub
+  selenium_hub:
+    image: selenium/hub:3.141.59-europium
+    ports:
+    - 4444:4444
+
+  # Docker-Android
+  nexus_7.1.1:
+    image: budtmo/docker-android-x86-7.1.1:1.6-p3
+    privileged: true
+    # Increase scale number if needed
+    scale: 1
+    depends_on:
+    - selenium_hub
+    ports:
+    - 6080:6080
+    environment:
+    - DEVICE=Nexus 5
+    - CONNECT_TO_GRID=true
+    - APPIUM=true
+    - SELENIUM_HOST=selenium_hub
+    - AUTO_RECORD=false
+    - MOBILE_WEB_TEST=true

@@ -23,7 +23,8 @@ public class MSiteBrowserTest {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.1.1");
-        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
+        //desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
         desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "browser");
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
         driver = new AndroidDriver<>(new URL(URL), desiredCapabilities);
@@ -31,7 +32,7 @@ public class MSiteBrowserTest {
 
     @Given("^my personal page$")
     public void personalPage() throws InterruptedException {
-        driver.get("https://butomo1989.github.io/");
+        driver.get("https://budtmo.github.io");
     }
 
     @When("^user press (.*)$")
