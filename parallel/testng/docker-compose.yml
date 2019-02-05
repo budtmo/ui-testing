@@ -1,0 +1,64 @@
+version: "2.2"
+
+services:
+
+  # Selenium hub
+  selenium_hub:
+    image: selenium/hub:3.141.59-europium
+    ports:
+    - 4444:4444
+
+  # Appium-Docker-Android
+  real_device:
+    image: appium/appium
+    depends_on:
+    - selenium_hub
+    network_mode: "service:selenium_hub"
+    privileged: true
+    volumes:
+    - /dev/bus/usb:/dev/bus/usb
+    - ~/.android:/root/.android
+    - $PWD/src/test/resources/apk:/root/tmp/sample_apk
+    environment:
+    - CONNECT_TO_GRID=true
+    - SELENIUM_HOST=selenium_hub
+    # Enable it for msite testing
+    #- BROWSER_NAME=chrome
+
+  # Docker-Android
+  samsung_7.1.1:
+    image: budtmo/docker-android-x86-7.1.1:1.6-p4
+    privileged: true
+    # Increase scale number if needed
+    scale: 1
+    depends_on:
+    - selenium_hub
+    - real_device
+    ports:
+    - 6080:6080
+    environment:
+    - DEVICE=Samsung Galaxy S6
+    - CONNECT_TO_GRID=true
+    - APPIUM=true
+    - SELENIUM_HOST=selenium_hub
+    - MOBILE_WEB_TEST=true
+    - AUTO_RECORD=false
+
+  # Docker-Android
+  nexus_5.1.1:
+    image: budtmo/docker-android-x86-5.1.1:1.6-p4
+    privileged: true
+    # Increase scale number if needed
+    scale: 1
+    depends_on:
+    - selenium_hub
+    - real_device
+    ports:
+    - 6081:6080
+    environment:
+    - DEVICE=Nexus 5
+    - CONNECT_TO_GRID=true
+    - APPIUM=true
+    - SELENIUM_HOST=selenium_hub
+    - MOBILE_WEB_TEST=true
+    - AUTO_RECORD=false

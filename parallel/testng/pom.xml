@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ui.test.msite.chrome</groupId>
-    <artifactId>ui-test-msite-chrome</artifactId>
+    <groupId>ui.test.parallel.testng</groupId>
+    <artifactId>ui-test-parallel-testng</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
-        <appium-java-client.version>6.0.0-BETA5</appium-java-client.version>
+        <appium-java-client.version>7.0.0</appium-java-client.version>
         <testng.version>6.11</testng.version>
         <cucumbertestng.version>1.2.5</cucumbertestng.version>
         <cucumberjava.version>1.2.5</cucumberjava.version>

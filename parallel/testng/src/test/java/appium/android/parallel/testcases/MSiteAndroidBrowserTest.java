@@ -8,7 +8,7 @@ public class MSiteAndroidBrowserTest extends AndroidTestBase{
 
     @Test
     public void visitMyPersonalPage(){
-        driver.get("https://butomo1989.github.io/");
+        driver.get("https://budtmo.github.io/");
 
         driver.findElement(By.linkText("About")).click();
 

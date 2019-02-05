@@ -10,12 +10,11 @@ public class MSiteChromeTest extends AndroidTestBase {
 
     @Test
     public void searchForAppiumConf(){
-        driver.get("https://www.google.com/");
+        driver.get("https://budtmo.github.io/");
 
-        WebElement element = driver.findElement(By.name("q"));
-        element.sendKeys("AppiumConf");
-        element.submit();
+        driver.findElement(By.linkText("About")).click();
 
-        driver.findElement(By.id("ires")).isDisplayed();
+        driver.findElement(By.xpath("/html/body/div/div/p[2]")).isDisplayed();
+        driver.findElement(By.linkText("Home")).isDisplayed();
     }
 }

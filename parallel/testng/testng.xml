@@ -11,8 +11,8 @@
     </test>
 
     <test name="EmulatorSamsungMSiteChrome">
-        <parameter name="platformVersion" value="8.1"/>
-        <parameter name="deviceName" value="Android Emulator"/>
+        <parameter name="platformVersion" value="7.1.1"/>
+        <parameter name="deviceName" value="emulator-5554"/>
         <parameter name="browserName" value="chrome"/>
         <classes>
             <class name="appium.android.parallel.testcases.MSiteChromeTest"/>
@@ -21,7 +21,7 @@
 
     <test name="EmulatorNexusMSiteAndroidBrowser">
         <parameter name="platformVersion" value="5.1.1"/>
-        <parameter name="deviceName" value="Android Emulator"/>
+        <parameter name="deviceName" value="emulator-5554"/>
         <parameter name="browserName" value="browser"/>
         <classes>
             <class name="appium.android.parallel.testcases.MSiteAndroidBrowserTest"/>
