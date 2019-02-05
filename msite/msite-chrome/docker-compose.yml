@@ -10,7 +10,7 @@ services:
 
   # Docker-Android
   nexus_7.1.1:
-    image: budtmo/docker-android-x86-7.1.1:1.6-p3
+    image: budtmo/docker-android-x86-7.1.1:1.6-p4
     privileged: true
     # Increase scale number if needed
     scale: 1
