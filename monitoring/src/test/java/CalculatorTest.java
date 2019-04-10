@@ -14,7 +14,7 @@ import org.testng.Assert;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class AndroidUITest {
+public class CalculatorTest {
 
     private static final String URL = "http://127.0.0.1:4444/wd/hub";
     private AndroidDriver<AndroidElement> driver;
@@ -22,9 +22,9 @@ public class AndroidUITest {
     @Before
     public void prepare() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, CukesRunnerTest.platformVersion);
+        desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, CukesRunnerTest.os);
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, CukesRunnerTest.device);
-        desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, CukesRunnerTest.browser);
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, CukesRunnerTest.version);
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "/root/tmp/sample_apk/sample_apk_debug.apk");
 
