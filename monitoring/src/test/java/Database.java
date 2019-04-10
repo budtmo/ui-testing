@@ -11,7 +11,7 @@ public class Database {
         db.setDatabase(NAME);
     }
 
-    public static void save(final Point point){
-        db.write(point);
+    public static void save(final Point content){
+        db.write(content);
     }
 }

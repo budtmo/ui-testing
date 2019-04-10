@@ -4,10 +4,10 @@
     <listeners>
         <listener class-name="DatabaseListener"/>
     </listeners>
-    <test name="AndroidMonitoring">
-            <parameter name="platformVersion" value="7.1.1"/>
-            <parameter name="deviceName" value="emulator-5554"/>
+    <test name="DemoTest">
             <parameter name="browserName" value="android"/>
+            <parameter name="deviceName" value="emulator-5554"/>
+            <parameter name="platformVersion" value="7.1.1"/>
         <classes>
             <class name="CukesRunnerTest"/>
         </classes>
