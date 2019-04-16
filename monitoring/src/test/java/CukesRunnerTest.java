@@ -1,12 +1,10 @@
 import cucumber.api.CucumberOptions;
-import cucumber.api.java.Before;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.io.IOException;
-
 
 @CucumberOptions(features = "src/test/resources/features", plugin = {"pretty", "html:target/cucumber-html-report"})
 public class CukesRunnerTest extends AbstractTestNGCucumberTests {

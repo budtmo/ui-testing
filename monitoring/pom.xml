@@ -11,9 +11,8 @@
     <properties>
         <java.version>1.8</java.version>
         <appium-java-client.version>7.0.0</appium-java-client.version>
-        <testng.version>6.11</testng.version>
-        <cucumbertestng.version>1.2.5</cucumbertestng.version>
-        <cucumberjava.version>1.2.5</cucumberjava.version>
+        <cucumberjava.version>4.3.0</cucumberjava.version>
+        <cucumbertestng.version>4.3.0</cucumbertestng.version>
         <influxdb.version>2.12</influxdb.version>
     </properties>
 
@@ -24,21 +23,15 @@
             <version>${appium-java-client.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>${cucumbertestng.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumberjava.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumbertestng.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
