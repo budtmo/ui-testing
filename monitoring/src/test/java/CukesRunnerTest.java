@@ -2,6 +2,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.PickleEventWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
+import gherkin.events.PickleEvent;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -12,8 +13,7 @@ import org.testng.annotations.Test;
 @CucumberOptions(strict = true, plugin = "json:target/cucumber-report-feature-composite.json")
 public class CukesRunnerTest {
     private TestNGCucumberRunner testNGCucumberRunner;
-
-    public static String os, device, version;
+    private static String os, device, version, currentFeature, currentScenario;
 
     @Parameters({"browserName", "deviceName", "platformVersion"})
     @BeforeClass(alwaysRun = true)
@@ -27,7 +27,10 @@ public class CukesRunnerTest {
 
     @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
     public void scenario(PickleEventWrapper pickleEvent, CucumberFeatureWrapper cucumberFeature) throws Throwable {
-        testNGCucumberRunner.runScenario(pickleEvent.getPickleEvent());
+        PickleEvent event = pickleEvent.getPickleEvent();
+        currentFeature = cucumberFeature.toString();
+        currentScenario = event.pickle.getName();
+        testNGCucumberRunner.runScenario(event);
     }
 
     @DataProvider
@@ -38,5 +41,25 @@ public class CukesRunnerTest {
     @AfterClass(alwaysRun = true)
     public void tearDownClass() throws Exception {
         testNGCucumberRunner.finish();
+    }
+
+    public static String getOS() {
+        return os;
+    }
+
+    public static String getDevice() {
+        return device;
+    }
+
+    public static String getVersion() {
+        return version;
+    }
+
+    public static String getCurrentFeature() {
+        return currentFeature;
+    }
+
+    public static String getCurrentScenario() {
+        return currentScenario;
     }
 }

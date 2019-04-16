@@ -7,7 +7,6 @@ import org.testng.xml.XmlTest;
 import java.util.concurrent.TimeUnit;
 
 public class DatabaseListener implements ITestListener {
-    static XmlTest config;
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
@@ -34,7 +33,6 @@ public class DatabaseListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext iTestContext) {
-        config = iTestContext.getCurrentXmlTest();
     }
 
     @Override
@@ -44,14 +42,13 @@ public class DatabaseListener implements ITestListener {
     public void sendTestResult(ITestResult iTestResult, String status) {
         Point content = Point.measurement("result")
                 .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
-                .tag("testclass", iTestResult.getTestClass().getName())
-                .tag("name", iTestResult.getName())
-                .tag("os", config.getParameter("browserName"))
-                .tag("device", config.getParameter("deviceName"))
-                .tag("android version", config.getParameter("platformVersion"))
+                .tag("feature", CukesRunnerTest.getCurrentFeature())
+                .tag("scenario", CukesRunnerTest.getCurrentScenario())
+                .tag("os", CukesRunnerTest.getOS())
+                .tag("device", CukesRunnerTest.getDevice())
+                .tag("android version", CukesRunnerTest.getVersion())
                 .tag("status", status)
                 .addField("duration", (iTestResult.getEndMillis() - iTestResult.getStartMillis())).build();
-
         Database.save(content);
     }
 }
