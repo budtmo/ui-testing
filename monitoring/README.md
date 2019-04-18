@@ -22,13 +22,12 @@ Quick Start
 	curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE demo"
 	```
 
-3. Connect Database to Grafana with following parameters (only for the first time)
+3. Connect Database to Grafana with following parameters (only for the first time), choose type InfluxDB.
 
 	```bash
 	Name: influxdb
-	Type: influxDB
 	URL: http://localhost:8086
-	Access: direct
+	Access: Browser
 	Database: demo
 	User and pass: root
 	```
