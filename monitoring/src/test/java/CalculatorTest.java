@@ -22,9 +22,9 @@ public class CalculatorTest {
     @Before
     public void prepare() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, CukesRunnerTest.getOS());
-        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, CukesRunnerTest.getDevice());
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, CukesRunnerTest.getVersion());
+        desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, CalculatorTestRunner.getOS());
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, CalculatorTestRunner.getDevice());
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, CalculatorTestRunner.getVersion());
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "/root/tmp/sample_apk/sample_apk_debug.apk");
 

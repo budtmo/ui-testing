@@ -11,7 +11,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 @CucumberOptions(strict = true, plugin = "json:target/cucumber-report-feature-composite.json")
-public class CukesRunnerTest {
+public class CalculatorTestRunner {
     private TestNGCucumberRunner testNGCucumberRunner;
     private static String os, device, version, currentFeature, currentScenario;
 
