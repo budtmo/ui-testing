@@ -37,9 +37,9 @@ public class CalculatorTest {
     }
 
     @When("^user sum up (\\d+) and (\\d+)$")
-    public void sumUpBetweenTwoNumbers(int firstNumber, int secondNumber) {
-        driver.findElementById("first_input").sendKeys(Integer.toString(firstNumber));
-        driver.findElementById("second_input").sendKeys(Integer.toString(secondNumber));
+    public void sumUpBetweenTwoNumbers(int firstNum, int secondNum) {
+        driver.findElementById("first_input").sendKeys(Integer.toString(firstNum));
+        driver.findElementById("second_input").sendKeys(Integer.toString(secondNum));
         driver.findElementById("btn_calculate").click();
     }
 
