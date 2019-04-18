@@ -3,9 +3,11 @@ import org.influxdb.InfluxDBFactory;
 import org.influxdb.dto.Point;
 
 public class Database {
-    private static final String URL = "http://localhost:8086";
-    private static final String NAME = "demo";
-    private static final InfluxDB db = InfluxDBFactory.connect(URL,"root", "root");
+    private static final String URL = Configuration.getProperties().getProperty("db.url");
+    private static final String NAME = Configuration.getProperties().getProperty("db.name");
+    private static final String USER = Configuration.getProperties().getProperty("db.user");
+    private static final String PASS = Configuration.getProperties().getProperty("db.pass");
+    private static final InfluxDB db = InfluxDBFactory.connect(URL,USER, PASS);
 
     static {
         db.setDatabase(NAME);

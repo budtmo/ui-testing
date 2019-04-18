@@ -16,7 +16,6 @@ import java.net.URL;
 
 public class CalculatorTest {
 
-    private static final String URL = "http://127.0.0.1:4444/wd/hub";
     private AndroidDriver<AndroidElement> driver;
 
     @Before
@@ -26,9 +25,9 @@ public class CalculatorTest {
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, CalculatorTestRunner.getDevice());
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, CalculatorTestRunner.getVersion());
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
-        desiredCapabilities.setCapability(MobileCapabilityType.APP, "/root/tmp/sample_apk/sample_apk_debug.apk");
+        desiredCapabilities.setCapability(MobileCapabilityType.APP, Configuration.getProperties().getProperty("apk_path"));
 
-        driver = new AndroidDriver<>(new URL(URL), desiredCapabilities);
+        driver = new AndroidDriver<>(new URL(Configuration.getProperties().getProperty("appium.url")), desiredCapabilities);
     }
 
     @Given("^calculator app$")

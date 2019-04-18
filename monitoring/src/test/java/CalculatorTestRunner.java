@@ -23,6 +23,7 @@ public class CalculatorTestRunner {
         os = browserName;
         device = deviceName;
         version = platformVersion;
+        Configuration.load();
     }
 
     @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
