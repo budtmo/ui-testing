@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite" parallel="tests" thread-count="1" >
+<suite name="Suite" parallel="tests" thread-count="2" >
     <listeners>
         <listener class-name="DatabaseListener"/>
     </listeners>

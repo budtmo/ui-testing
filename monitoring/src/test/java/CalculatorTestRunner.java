@@ -29,7 +29,7 @@ public class CalculatorTestRunner {
         Configuration.load();
     }
 
-    @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
+    @Test(dataProvider = "scenarios")
     public void scenario(PickleEventWrapper pickleEvent, CucumberFeatureWrapper cucumberFeature) throws Throwable {
         PickleEvent event = pickleEvent.getPickleEvent();
         currentFeature = cucumberFeature.toString();
@@ -37,7 +37,7 @@ public class CalculatorTestRunner {
         testNGCucumberRunner.runScenario(event);
     }
 
-    @DataProvider
+    @DataProvider(name = "scenarios")
     public Object[][] scenarios() {
         return testNGCucumberRunner.provideScenarios();
     }
