@@ -5,10 +5,10 @@
         <listener class-name="DatabaseListener"/>
     </listeners>
     <test name="Calculator">
-            <parameter name="browser" value="android"/>
-            <parameter name="avd" value="nexus_5_7.1.1"/>
-            <parameter name="emulator" value="emulator-5554"/>
-            <parameter name="version" value="7.1.1"/>
+        <parameter name="browser" value="android"/>
+        <parameter name="avd" value="nexus_5_7.1.1"/>
+        <parameter name="emulator" value="emulator-5554"/>
+        <parameter name="version" value="7.1.1"/>
         <classes>
             <class name="CalculatorTestRunner"/>
         </classes>
