@@ -1,6 +1,6 @@
 Feature: Addition operation
 
-    Scenario Outline: <num1> + <num2>
+    Scenario Outline: <num1> + <num2> = <total>
         Given calculator app
         When user sum up <num1> and <num2>
         Then the result must be <total>
