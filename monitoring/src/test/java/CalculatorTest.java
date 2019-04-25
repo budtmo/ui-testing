@@ -27,7 +27,7 @@ public class CalculatorTest {
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         desiredCapabilities.setCapability(MobileCapabilityType.APP, Configuration.getProperties().getProperty("apk_path"));
 
-        driver = new AndroidDriver<>(new URL(Configuration.getProperties().getProperty("appium.url")), desiredCapabilities);
+        driver = new AndroidDriver<>(new URL(Configuration.getProperties().getProperty("hub.url")), desiredCapabilities);
     }
 
     @Given("^calculator app$")
