@@ -45,6 +45,7 @@ public class DatabaseListener implements ITestListener {
                 .tag("scenario", CalculatorTestRunner.getCurrentScenario())
                 .tag("os", CalculatorTestRunner.getOS())
                 .tag("device", CalculatorTestRunner.getDevice())
+                .tag("emulator name", CalculatorTestRunner.getEmulator())
                 .tag("android version", CalculatorTestRunner.getVersion())
                 .tag("status", status)
                 .addField("duration", (iTestResult.getEndMillis() - iTestResult.getStartMillis())).build();

@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.WebElement;
@@ -22,10 +23,11 @@ public class CalculatorTest {
     public void prepare() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, CalculatorTestRunner.getOS());
-        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, CalculatorTestRunner.getDevice());
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, CalculatorTestRunner.getEmulator());
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, CalculatorTestRunner.getVersion());
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         desiredCapabilities.setCapability(MobileCapabilityType.APP, Configuration.getProperties().getProperty("apk_path"));
+        desiredCapabilities.setCapability(AndroidMobileCapabilityType.AVD, CalculatorTestRunner.getDevice());
 
         driver = new AndroidDriver<>(new URL(Configuration.getProperties().getProperty("hub.url")), desiredCapabilities);
     }

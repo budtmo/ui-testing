@@ -13,15 +13,18 @@ import org.testng.annotations.Test;
 @CucumberOptions(strict = true)
 public class CalculatorTestRunner {
     private TestNGCucumberRunner testNGCucumberRunner;
-    private static String os, device, version, currentFeature, currentScenario;
+    private static String os, device, emulator, version, currentFeature, currentScenario;
 
-    @Parameters({"browserName", "deviceName", "platformVersion"})
+    @Parameters({"browser", "avd", "emulator", "version"})
     @BeforeClass(alwaysRun = true)
-    public void beforeClass (@Optional("android") String browserName, @Optional("ce11160bbaee9c3b05") String deviceName,
-                            @Optional("7.0") String platformVersion) throws Exception {
+    public void beforeClass (@Optional("android") String browserName,
+                             @Optional("nexus_5") String avdName,
+                             @Optional("ce11160bbaee9c3b05") String emulatorName,
+                             @Optional("7.0") String platformVersion) throws Exception {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
         os = browserName;
-        device = deviceName;
+        device = avdName;
+        emulator = emulatorName;
         version = platformVersion;
         Configuration.load();
     }
@@ -51,6 +54,8 @@ public class CalculatorTestRunner {
     public static String getDevice() {
         return device;
     }
+
+    public static String getEmulator() {return emulator;}
 
     public static String getVersion() {
         return version;
