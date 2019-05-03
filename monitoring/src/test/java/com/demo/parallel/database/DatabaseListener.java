@@ -5,6 +5,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.xml.XmlTest;
 
 import java.util.ArrayList;
@@ -46,16 +48,16 @@ public class DatabaseListener implements ITestListener {
     }
 
     public void sendTestResult(ITestResult iTestResult, String status) {
-        Map<String, String> testConfig = getTestConfiguration();
+        XmlTest currentXmlTest = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest();
 
         Point content = Point.measurement("result")
                 .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
-                .tag("platform", testConfig.get("platform"))
-                .tag("device", testConfig.get("device"))
-                .tag("emulator", testConfig.get("emulator"))
-                .tag("version", testConfig.get("version"))
-                .tag("test class", iTestResult.getTestClass().getName())
-                .tag("test name", iTestResult.getName())
+                .tag("platform", currentXmlTest.getParameter("browser"))
+                .tag("device", currentXmlTest.getParameter("avd"))
+                .tag("emulator", currentXmlTest.getParameter("emulator"))
+                .tag("version", currentXmlTest.getParameter("version"))
+                .tag("test-class", iTestResult.getTestClass().getName())
+                .tag("test-name", iTestResult.getName())
                 .tag("description", getDescription(iTestResult))
                 .tag("status", status)
                 .addField("duration", (iTestResult.getEndMillis() - iTestResult.getStartMillis())).build();
@@ -77,16 +79,5 @@ public class DatabaseListener implements ITestListener {
         }
 
         return description;
-    }
-
-    private Map<String, String> getTestConfiguration(){
-        Map<String, String> config = new HashMap<>();
-        ITestResult r = Reporter.getCurrentTestResult();
-        XmlTest xmlTest = r.getTestContext().getCurrentXmlTest();
-        config.put("platform", xmlTest.getParameter("browser"));
-        config.put("device", xmlTest.getParameter("avd"));
-        config.put("emulator", xmlTest.getParameter("emulator"));
-        config.put("version", xmlTest.getParameter("version"));
-        return config;
     }
 }
