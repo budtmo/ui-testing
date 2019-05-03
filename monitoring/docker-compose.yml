@@ -22,30 +22,40 @@ services:
     volumes:
       - $PWD/grafana:/var/lib/grafana
 
-  # Selenium hub
-  selenium_hub:
-    image: selenium/hub:3.141.59-mercury
-    container_name: selenium
-    ports:
-      - 4444:4444
-
-  # Docker-Android
+  # Nexus 7.1.1
   nexus_7.1.1:
     image: budtmo/docker-android-x86-7.1.1:1.7-p1
-    container_name: docker-android
+    container_name: nexus
     privileged: true
     # Increase scale number if needed
     scale: 1
-    depends_on:
-      - selenium_hub
     ports:
+      - 4723:4723
       - 6080:6080
     # Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
     volumes:
       - $PWD/src/test/resources/apk:/root/tmp/sample_apk
     environment:
       - DEVICE=Nexus 5
-      - CONNECT_TO_GRID=true
+      - CONNECT_TO_GRID=false
       - APPIUM=true
-      - SELENIUM_HOST=selenium_hub
+      - AUTO_RECORD=false
+
+  # Samsung 7.0
+  samsung_7.0:
+    image: budtmo/docker-android-x86-7.0:1.7-p1
+    container_name: samsung
+    privileged: true
+    # Increase scale number if needed
+    scale: 1
+    ports:
+      - 6081:6080
+      - 4724:4723
+    # Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
+    volumes:
+      - $PWD/src/test/resources/apk:/root/tmp/sample_apk
+    environment:
+      - DEVICE=Samsung Galaxy S6
+      - CONNECT_TO_GRID=false
+      - APPIUM=true
       - AUTO_RECORD=false
