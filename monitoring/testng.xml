@@ -1,6 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite" parallel="tests" thread-count="2" >
+    <listeners>
+        <listener class-name="com.demo.parallel.database.DatabaseListener"/>
+    </listeners>
     <test name="TestOnNexus">
         <parameter name="browser" value="android"/>
         <parameter name="avd" value="nexus_5_7.1.1"/>
