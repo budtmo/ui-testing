@@ -5,13 +5,9 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 import org.testng.xml.XmlTest;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class DatabaseListener implements ITestListener {
