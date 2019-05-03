@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class DatabaseListener implements ITestListener {
+    public static final String BUILD_NUMBER = System.getenv("BUILD_NUMBER");
+
     @Override
     public void onTestStart(ITestResult iTestResult) {
     }
@@ -48,6 +50,7 @@ public class DatabaseListener implements ITestListener {
 
         Point content = Point.measurement("result")
                 .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
+                .tag("build-nr", this.BUILD_NUMBER)
                 .tag("platform", currentXmlTest.getParameter("browser"))
                 .tag("device", currentXmlTest.getParameter("avd"))
                 .tag("emulator", currentXmlTest.getParameter("emulator"))

@@ -10,17 +10,10 @@ Requirement
 Quick Start
 -----------
 
-1. Run all needed docker services
+1. Run all needed services
 
 	```bash
-	docker-compose up -d
-	```
-
-2. Create Database (only for the first time)
-
-	```bash
-	curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE demo"
-	```
+	./service.sh restart
 
 3. Connect Database to Grafana with following parameters (only for the first time), choose type InfluxDB.
 
@@ -35,5 +28,5 @@ Quick Start
 4. Run test
 
 	```bash
-	mvn test
+	BUILD_NUMBER=x mvn clean test
 	```
