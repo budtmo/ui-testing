@@ -24,7 +24,7 @@ services:
 
   # Nexus 7.1.1
   nexus_7.1.1:
-    image: budtmo/docker-android-x86-7.1.1:1.7-p1
+    image: budtmo/docker-android-x86-7.1.1:1.8-p0
     container_name: nexus
     privileged: true
     # Increase scale number if needed
@@ -43,7 +43,7 @@ services:
 
   # Samsung 7.0
   samsung_7.0:
-    image: budtmo/docker-android-x86-7.0:1.7-p1
+    image: budtmo/docker-android-x86-7.0:1.8-p0
     container_name: samsung
     privileged: true
     # Increase scale number if needed
