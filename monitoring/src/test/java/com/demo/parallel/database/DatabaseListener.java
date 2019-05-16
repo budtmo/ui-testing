@@ -82,6 +82,6 @@ public class DatabaseListener implements ITestListener {
 
     private static String getParam(String k) {
         String v = System.getenv(k);
-        return v!= null ? v : "unknown";
+        return v!= null ? v : "null";
     }
 }
