@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class DatabaseListener implements ITestListener {
-    public static final String BUILD_NUMBER = System.getenv("BUILD_NUMBER");
+    public static final String BUILD_NUMBER = getParam("BUILD_NUMBER");
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
@@ -78,5 +78,10 @@ public class DatabaseListener implements ITestListener {
         }
 
         return description;
+    }
+
+    private static String getParam(String k) {
+        String v = System.getenv(k);
+        return v!= null ? v : "unknown";
     }
 }
