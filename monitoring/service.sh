@@ -15,7 +15,7 @@ function restart() {
     chmod 777 -R grafana
 
     echo "Start the service"
-    docker-compose up -d
+    (export USER=$USER && export PASS=$PASS && docker-compose up -d)
 
     echo "Install Grafana Plug-in"
     docker exec grafana grafana-cli plugins install grafana-piechart-panel

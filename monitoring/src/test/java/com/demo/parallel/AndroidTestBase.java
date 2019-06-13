@@ -30,9 +30,12 @@ public class AndroidTestBase {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, platform);
-        desiredCapabilities.setCapability(AndroidMobileCapabilityType.AVD, device);
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, emulator);
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, version);
+
+        if (!device.equals("genymotion")) {
+            desiredCapabilities.setCapability(AndroidMobileCapabilityType.AVD, device);
+        }
 
         if (platform.equals(BrowserType.ANDROID)) {
             desiredCapabilities.setCapability(MobileCapabilityType.APP, APK);

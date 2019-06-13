@@ -59,3 +59,24 @@ services:
       - CONNECT_TO_GRID=false
       - APPIUM=true
       - AUTO_RECORD=false
+
+  # Docker-Android with Genymotion integration
+  genymotion:
+    image: budtmo/docker-android-genymotion:1.8-p2-beta
+    container_name: pixel
+    privileged: true
+    # Increase scale number if needed
+    scale: 1
+    ports:
+      - 6082:6080
+      - 4725:4723
+    # Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
+    volumes:
+      - $PWD/src/test/resources/apk:/root/tmp/sample_apk
+      - $PWD/src/test/resources/genymotion:/root/tmp/genymotion
+    environment:
+      - TYPE=SaaS
+      - USER=$USER
+      - PASS=$PASS
+      - TEMPLATE=/root/tmp/genymotion/devices.json
+      - CONNECT_TO_GRID=false

@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite" parallel="tests" thread-count="2" >
+<suite name="Suite" parallel="tests" thread-count="3" >
     <listeners>
         <listener class-name="com.demo.parallel.database.DatabaseListener"/>
     </listeners>
@@ -20,6 +20,16 @@
         <parameter name="emulator" value="emulator-5554"/>
         <parameter name="version" value="7.0"/>
         <parameter name="port" value="4724"/>
+        <classes>
+            <class name="com.demo.parallel.tests.CalculatorAppTest"/>
+        </classes>
+    </test>
+    <test name="TestOnPixel">
+        <parameter name="browser" value="android"/>
+        <parameter name="avd" value="genymotion"/>
+        <parameter name="emulator" value="localhost:38727"/>
+        <parameter name="version" value="8.0"/>
+        <parameter name="port" value="4725"/>
         <classes>
             <class name="com.demo.parallel.tests.CalculatorAppTest"/>
         </classes>
