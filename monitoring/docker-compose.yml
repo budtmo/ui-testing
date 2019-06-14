@@ -13,14 +13,16 @@ services:
 
   #Grafana
   monitoring:
-    image: grafana/grafana:6.1.6
+    image: grafana/grafana:6.2.2
     container_name: grafana
     depends_on:
       - db
     ports:
       - 3000:3000
     volumes:
-      - $PWD/grafana:/var/lib/grafana
+      - $PWD/src/test/resources/grafana:/etc/grafana/custom
+    environment:
+      - GF_PATHS_CONFIG=/etc/grafana/custom/grafana.ini
 
   # Docker-Android - Nexus(Android version: 7.1.1)
   nexus_7.1.1:
