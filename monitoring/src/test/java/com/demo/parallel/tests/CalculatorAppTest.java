@@ -13,9 +13,12 @@ public class CalculatorAppTest extends AndroidTestBase {
     @DataProvider()
     private Object[][] testNumbers() {
         return new Object[][] {
-                new Object[]{1, 2, 3},
-                new Object[]{3, 3, 6},
-                new Object[]{5, 2, 10}
+                new Object[]{1, 1, 2},
+                new Object[]{3, 4, 7},
+                new Object[]{4, 4, 8},
+                new Object[]{5, 2, 7},
+                new Object[]{2, 2, 8}, //FAILED
+                new Object[]{3, 1, 10} //FAILED
         };
     }
 
